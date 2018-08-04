@@ -5,12 +5,12 @@ set -ex
 cd code/go
 export GOPATH=$PWD
 go install luago
-luac ../lua/ch07/test.lua
-bin/luago luac.out | grep cBaBar3
+luac ../lua/ch08/test.lua
+bin/luago luac.out | grep call
 
 # test java
 cd ../java
 gradle build
-java -cp build/classes/java/main com.github.zxh0.luago.Main ../go/luac.out | grep cBaBar3
+java -cp build/classes/java/main com.github.zxh0.luago.Main ../go/luac.out | grep call
 
 echo OK
