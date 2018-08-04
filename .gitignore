@@ -1,0 +1,10 @@
+pkg/
+bin/
+*.DS_Store
+luac.out
+.gradle/
+.idea/
+build/
+out/
+*.iml
+# *.luac
