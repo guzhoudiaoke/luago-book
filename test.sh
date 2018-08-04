@@ -1,9 +1,16 @@
 #!/bin/sh
 set -ex
 
+# test go
 cd code/go
 export GOPATH=$PWD
 go install luago
-bin/luago 2>&1 | grep -q 'Hello, World!'
+luac ../lua/ch02/hello_world.lua
+bin/luago luac.out | grep main
+
+# test java
+cd ../java
+gradle build
+java -cp build/classes/java/main com.github.zxh0.luago.Main ../go/luac.out | grep main
 
 echo OK
