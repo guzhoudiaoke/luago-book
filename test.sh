@@ -5,6 +5,7 @@ set -ex
 cd code/go
 export GOPATH=$PWD
 go install luago
-./bin/luago ../lua/ch19/examples.lua | grep "2018"
+cd ../lua/ch20
+../../go/bin/luago test.lua | tr -d '\n' | grep -q "foobar"
 
 echo OK
