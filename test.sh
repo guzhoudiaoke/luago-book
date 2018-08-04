@@ -5,12 +5,11 @@ set -ex
 cd code/go
 export GOPATH=$PWD
 go install luago
-luac ../lua/ch13/test.lua
-./bin/luago luac.out | tr -d '\n\t' | grep -F -q "true2falseDIV BY ZERO !falsearithmetic error!"
+./bin/luago ../lua/ch02/hello_world.lua | grep EOF
 
 # test java
 cd ../java
 gradle build
-java -cp build/classes/java/main com.github.zxh0.luago.Main ../go/luac.out | tr -d '\n\t' | grep -F -q "true2.0falseDIV BY ZERO !falsearithmetic error!"
+java -cp build/classes/java/main com.github.zxh0.luago.Main ../lua/ch02/hello_world.lua | grep EOF
 
 echo OK
